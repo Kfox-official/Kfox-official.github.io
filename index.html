@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TAKE's Potofolio</title>
+  <meta name="description" content="TAKE's Potofolio - Personal Website" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+    :root{
+      --bg:#101820;
+      --card:#1f2937;
+      --muted:#9ca3af;
+      --accent:#3b82f6;
+    }
+    html,body{height:100%;}
+    body{
+      margin:0;
+      font-family:'Poppins', sans-serif;
+      background:linear-gradient(180deg,var(--bg),#000);
+      color:#f9fafb;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:32px;
+    }
+    .card{
+      background:rgba(31,41,55,0.95);
+      border-radius:20px;
+      padding:32px;
+      max-width:880px;
+      width:100%;
+      box-shadow:0 0 30px rgba(59,130,246,0.4);
+      text-align:center;
+      border:2px solid var(--accent);
+    }
+    h1{
+      margin:0 0 8px;
+      font-size:40px;
+      color:var(--accent);
+    }
+    h2{
+      margin-top:28px;
+      color:var(--accent);
+      font-size:26px;
+    }
+    p.lead{
+      color:var(--muted);
+      margin:0 0 16px;
+      font-size:18px;
+    }
+    .btn{
+      display:inline-block;
+      margin-top:20px;
+      padding:12px 20px;
+      border-radius:12px;
+      background:rgba(59,130,246,0.12);
+      color:var(--accent);
+      text-decoration:none;
+      border:1px solid var(--accent);
+      font-weight:600;
+      transition:all 0.3s;
+    }
+    .btn:hover{
+      background:var(--accent);
+      color:#fff;
+      box-shadow:0 0 20px var(--accent);
+    }
+    .works-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+      gap:16px;
+      margin-top:20px;
+    }
+    .work-item{
+      background:rgba(255,255,255,0.05);
+      border:1px solid rgba(59,130,246,0.3);
+      border-radius:12px;
+      padding:16px;
+      transition:transform 0.3s;
+    }
+    .work-item:hover{
+      transform:translateY(-5px);
+      box-shadow:0 0 15px rgba(59,130,246,0.5);
+    }
+    footer{margin-top:28px;color:var(--muted);font-size:13px}
+  </style>
+</head>
+<body>
+  <main class="card" role="main">
+    <h1>TAKE's Potofolio</h1>
+    <p class="lead">Welcome to my portfolio website.<br>
+      Here you can find who I am, what I do, and some of my works.</p>
+
+    <section>
+      <h2>About Me</h2>
+      <p class="lead"><strong>Hello!</strong><br>
+      I am TAKE, passionate about technology, games, and creativity.<br>
+      I enjoy exploring gadgets, customizing devices, and learning new things.<br>
+      My dream is to become a skilled engineer in the future.</p>
+    </section>
+
+    <section>
+      <h2>Works</h2>
+      <p class="lead">Some of the projects and creations I want to share:</p>
+      <div class="works-grid">
+        <div class="work-item">
+          <h3>💻 Custom OS Builds</h3>
+          <p class="lead">Experimenting with Android ROMs and Windows customizations.</p>
+          <a class="btn" href="#">View</a>
+        </div>
+        <div class="work-item">
+          <h3>🎮 Gaming Mods</h3>
+          <p class="lead">Console CFW, game tweaks, and experiments with mods.</p>
+          <a class="btn" href="#">View</a>
+        </div>
+        <div class="work-item">
+          <h3>⚡ Creative Apps</h3>
+          <p class="lead">Small experiments and tools built for fun and learning.</p>
+          <a class="btn" href="#">View</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <small>© 2025 TAKE | Personal Portfolio</small>
+    </footer>
+  </main>
+</body>
+</html>
