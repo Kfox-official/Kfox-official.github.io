@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LinkHub</title>
+
+<link rel="manifest" href="manifest.json">
+
+<style>
+body {
+  margin:0;
+  font-family: Arial;
+  background:#0e1621;
+  color:white;
+}
+
+.container {
+  display:flex;
+  height:100vh;
+}
+
+.sidebar {
+  width:280px;
+  background:#17212b;
+  overflow:auto;
+}
+
+.chat {
+  flex:1;
+  padding:20px;
+  overflow:auto;
+}
+
+.item {
+  padding:15px;
+  cursor:pointer;
+  border-bottom:1px solid rgba(255,255,255,0.05);
+}
+
+.item:hover {
+  background:#202b36;
+}
+
+.card {
+  background:#182533;
+  padding:15px;
+  border-radius:12px;
+  margin-bottom:10px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.left {
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+img {
+  width:32px;
+  height:32px;
+  border-radius:8px;
+}
+
+button {
+  background:none;
+  border:none;
+  color:gold;
+  font-size:18px;
+  cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="sidebar" id="sidebar"></div>
+
+<div class="chat" id="chat">
+<h2>カテゴリを選択</h2>
+</div>
+
+</div>
+
+<script>
+let favorites = JSON.parse(localStorage.getItem("fav")||"[]");
+
+fetch("data.json")
+.then(r=>r.json())
+.then(data=>{
+
+  const sidebar = document.getElementById("sidebar");
+  const chat = document.getElementById("chat");
+
+  Object.keys(data).forEach(cat=>{
+    const div=document.createElement("div");
+    div.className="item";
+    div.innerText=cat;
+    div.onclick=()=>showCategory(cat,data[cat]);
+    sidebar.appendChild(div);
+  });
+
+  function showCategory(name,items){
+    chat.innerHTML="<h2>"+name+"</h2>";
+
+    items.forEach(site=>{
+      const card=document.createElement("div");
+      card.className="card";
+
+      const left=document.createElement("div");
+      left.className="left";
+
+      const icon=document.createElement("img");
+      icon.src="https://www.google.com/s2/favicons?sz=64&domain="+site.url;
+
+      const text=document.createElement("div");
+      text.innerHTML="<b>"+site.name+"</b><br>"+(site.tag||"");
+
+      left.appendChild(icon);
+      left.appendChild(text);
+
+      const star=document.createElement("button");
+      star.innerHTML=favorites.includes(site.name)?"★":"☆";
+
+      star.onclick=()=>{
+        if(favorites.includes(site.name)){
+          favorites=favorites.filter(f=>f!==site.name);
+        }else{
+          favorites.push(site.name);
+        }
+        localStorage.setItem("fav",JSON.stringify(favorites));
+        star.innerHTML=favorites.includes(site.name)?"★":"☆";
+      };
+
+      card.onclick=()=>window.open(site.url);
+
+      card.appendChild(left);
+      card.appendChild(star);
+      chat.appendChild(card);
+    });
+  }
+
+});
+</script>
+
+<script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('service-worker.js');
+}
+</script>
+
+</body>
+</html>

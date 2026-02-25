@@ -1,0 +1,16 @@
+{
+  "Anime": [
+    {
+      "name": "Crunchyroll",
+      "url": "https://crunchyroll.com",
+      "tag": "Official"
+    }
+  ],
+  "Tools": [
+    {
+      "name": "GitHub",
+      "url": "https://github.com",
+      "tag": "Dev"
+    }
+  ]
+}
