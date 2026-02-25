@@ -6,6 +6,11 @@
       "tag": "Official"
     }
   ],
+  {
+  "name": "9Anime",
+  "url": "https://9animetv.to/",
+  "tag": "Streaming"
+},
   "Tools": [
     {
       "name": "GitHub",
@@ -13,4 +18,5 @@
       "tag": "Dev"
     }
   ]
+
 }
