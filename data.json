@@ -4,12 +4,12 @@
       "name": "Crunchyroll",
       "url": "https://crunchyroll.com",
       "tag": "Official"
+    },
+    {
+    "name": "9Anime",
+    "url": "https://9animetv.to/",
+    "tag": "Streaming"
     }
-  ],
-  {
-  "name": "9Anime",
-  "url": "https://9animetv.to/",
-  "tag": "Streaming"
 },
   "Tools": [
     {
@@ -20,3 +20,4 @@
   ]
 
 }
+
