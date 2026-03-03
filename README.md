@@ -12,7 +12,7 @@ A modern Telegram-style link hub with favorites, search, and PWA support.
 
 ## 🌐 Live Demo
 
-👉 https://あなたのID.github.io/linkhub/
+👉 https://Kfox-official.github.io
 
 ---
 
